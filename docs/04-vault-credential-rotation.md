@@ -63,20 +63,20 @@ alone. Vault re-seals on every restart by design.
 AD only permits password changes over an encrypted (LDAPS) connection, so the DC
 had to offer LDAPS before Vault could rotate anything.
 
-1. Installed the **AD CS** role on DC01 and configured it as an **Enterprise Root
-   CA**. Enterprise integration enables automatic certificate enrollment.
+Installed the **AD CS** role on DC01 and configured it as an **Enterprise Root
+CA** — enterprise integration enables automatic certificate enrollment.
 
 ![AD CS role — Certification Authority](images/30-adcs-role.png)
 
 ![Enterprise CA configuration](images/31-enterprise-ca-config.png)
-2. The DC auto-enrolled for a Domain Controller certificate (issued by
-   `lab-DC01-CA`), enabling LDAPS on port 636.
-3. **Verified LDAPS independently** with `ldp.exe` — connected to
-   `dc01.lab.local:636` with SSL, confirmed a 256-bit encrypted channel returning
-   RootDSE directory data. Proving the AD side worked *before* involving Vault
-   isolates any later problem to the Vault side.
-4. Exported the CA's public certificate (Base-64, no private key) and placed it
-   on SVC01 at `/etc/vault.d/lab-ca.pem` for Vault to trust the connection.
+
+The DC then auto-enrolled for a Domain Controller certificate (issued by
+`lab-DC01-CA`), enabling LDAPS on port 636. **LDAPS was verified independently**
+with `ldp.exe` — connecting to `dc01.lab.local:636` with SSL confirmed a 256-bit
+encrypted channel returning RootDSE directory data. Proving the AD side worked
+*before* involving Vault isolates any later problem to the Vault side. Finally,
+the CA's public certificate was exported (Base-64, no private key) and placed on
+SVC01 at `/etc/vault.d/lab-ca.pem` so Vault trusts the connection.
 
 ![DC LDAPS certificate and issuing CA](images/32-dc-ldaps-cert.png)
 
