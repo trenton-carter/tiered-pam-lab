@@ -1,0 +1,19 @@
+# Private interview/study notes — never publish
+concepts.md
+
+# Local secrets / key material that must never be committed
+*.key
+*.pem
+vault-keys*
+*unseal*
+*root-token*
+*.pfx
+*.p12
+
+# step-ca local state (if ever copied into the repo tree)
+.step/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
