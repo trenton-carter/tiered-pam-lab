@@ -94,7 +94,7 @@ descriptions. The right column links to where each is implemented and verified.
 | Certificate management / PKI                     | AD CS enterprise CA (LDAPS) + step-ca ACME issuance   | [P4](docs/04-vault-credential-rotation.md), [P6](docs/06-stepca-machine-identity.md) |
 | Access control workflows (RBAC)                  | Vault policies + AD delegation + Teleport roles       | [P4](docs/04-vault-credential-rotation.md), [P5](docs/05-teleport-session-recording.md) |
 | Technical documentation / operational procedures | This repo's build logs and scripts                    | [docs/](docs/), [scripts/](scripts/) |
-| Access reviews / segregation of duties           | Companion **IAM Governance Toolkit** repo (in progress) | - **[AD Identity Governance Toolkit](https://github.com/trenton-carter/ad-governance-toolkit)** — PowerShell toolkit for privileged access inventory, stale-account detection, Segregation of Duties analysis, and access-review certification against Active Directory, with a Pester test suite and a documented Microsoft Graph / Entra extension path. |
+| Access reviews / segregation of duties           | Companion **IAM Governance Toolkit** repo (in progress) | [AD Identity Governance Toolkit](https://github.com/trenton-carter/ad-governance-toolkit) |
 
 ---
 
@@ -150,6 +150,4 @@ networking · security documentation and threat modeling.
 
 ## Companion projects
 
-- **IAM Governance Toolkit** — PowerShell + Microsoft Graph for access reviews,
-  stale-account detection, and segregation-of-duties reporting against AD and
-  Entra ID. _(in progress)_
+- **[AD Identity Governance Toolkit](https://github.com/trenton-carter/ad-governance-toolkit)** — PowerShell toolkit for privileged access inventory, stale-account detection, Segregation of Duties analysis, and access-review certification against Active Directory, with a Pester test suite and a documented Microsoft Graph / Entra extension path.
